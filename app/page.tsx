@@ -69,7 +69,7 @@ export default function Home() {
             {formState.messages && (
               <>
                 {formState.messages.map((str: any, index: any) => (
-                  <div key={index}>
+                  <div className="mb-6" key={index}>
                     {str.split("\n").map((line: any, i: any) => (
                       <p key={i}>{line}</p>
                     ))}
@@ -81,6 +81,10 @@ export default function Home() {
         </div>
         <div className="bg-slate-800 p-8 rounded-md">
           <p className="font-bold text-xl mb-2">Indsæt værdier</p>
+          <p className="text-md mb-2">
+            Er din trekant retvinklet? Jamen, så skal du sætte C værdien til 90
+            grader.
+          </p>
           <form className="space-y-2" onSubmit={onSubmit}>
             {error && <p className="text-red-400">{error}</p>}
             <div>
