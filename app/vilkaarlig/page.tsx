@@ -20,6 +20,9 @@ const reducer = (state: any, action: any) => {
     case "UPDATE_RESULT":
       return action.value;
 
+    case "RESET":
+      return intialState;
+
     default:
       return state;
   }
@@ -96,8 +99,7 @@ export default function Vilkaarlig() {
           </div>
         </div>
         <div className="bg-slate-800 p-8 rounded-md">
-          <p className="font-bold text-xl mb-2">Indsæt værdier</p>
-
+          <p className="font-bold text-xl mb-2">Vilkårlig Trekant</p>
           <form className="space-y-2" onSubmit={onSubmit}>
             {error && <p className="text-red-400">{error}</p>}
             <div>
@@ -171,6 +173,13 @@ export default function Vilkaarlig() {
               type="submit"
             >
               Udregn
+            </button>
+            <button
+              className="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-md"
+              type="button"
+              onClick={() => dispatch({ type: "RESET" })}
+            >
+              Ryd
             </button>
           </form>
         </div>
