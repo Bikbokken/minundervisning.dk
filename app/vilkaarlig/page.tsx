@@ -1,8 +1,8 @@
 "use client";
 
-import { experimental_useEffectEvent, useReducer } from "react";
-import { TriangleCalculate } from "../lib/TriangleCalculatorRetvinkel.js";
-import TriangleSVG from "./components/TriangleCanvasRetvinklet";
+import { TriangleCalculate } from "@/lib/TriangleCalculatorVilkaarlig.js";
+import { useReducer } from "react";
+import TriangleSVG from "../components/TriangleCanvasVilkaarlig";
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
@@ -31,11 +31,11 @@ const intialState = {
   c: "",
   A: "",
   B: "",
-  C: 90,
+  C: "",
   error: null,
 };
 
-export default function Home() {
+export default function Vilkaarlig() {
   const [formState, dispatch] = useReducer(reducer, intialState);
   const { error, ...values } = formState;
 
@@ -63,6 +63,7 @@ export default function Home() {
     <main className="bg-slate-900 flex min-h-screen flex-col items-center justify-between p-24">
       <div className="grid grid-cols-2 gap-12">
         <div className="bg-slate-800 p-8 rounded-md">
+          <p className="font-bold">Udregninger</p>
           {values.a &&
             values.b &&
             values.c &&
@@ -76,10 +77,10 @@ export default function Home() {
                 sideA={values.a}
                 sideB={values.b}
                 sideC={values.c}
+                height={values.h}
               />
             )}
 
-          <p className="font-bold">Udregninger</p>
           <div>
             {formState.messages && (
               <>
@@ -161,7 +162,8 @@ export default function Home() {
                 type="number"
                 name="C"
                 placeholder="C"
-                value={90}
+                value={formState.C}
+                onChange={(e) => handleTextChange(e)}
               />
             </div>
             <button
