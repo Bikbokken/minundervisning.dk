@@ -4,6 +4,7 @@ import { error } from "console";
 import Image from "next/image";
 import { experimental_useEffectEvent, useReducer } from "react";
 import { TriangleCalculate } from "../lib/TriangleCalculator.js";
+import TriangleSVG from "./components/TriangleCanvas";
 
 const reducer = (state: any, action: any) => {
   switch (action.type) {
@@ -64,6 +65,22 @@ export default function Home() {
     <main className="bg-slate-900 flex min-h-screen flex-col items-center justify-between p-24">
       <div className="grid grid-cols-2 gap-12">
         <div className="bg-slate-800 p-8 rounded-md">
+          {values.a &&
+            values.b &&
+            values.c &&
+            values.A &&
+            values.B &&
+            values.C && (
+              <TriangleSVG
+                angleA={values.A}
+                angleB={values.B}
+                angleC={values.C}
+                sideA={values.a}
+                sideB={values.b}
+                sideC={values.c}
+              />
+            )}
+
           <p className="font-bold">Udregninger</p>
           <div>
             {formState.messages && (
