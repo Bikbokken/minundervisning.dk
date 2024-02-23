@@ -18,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="text-white">
       <body className={inter.className}>
         <nav className="flex gap-6 justify-center">
           <Link href="/">Retvinklet Trekant</Link>
