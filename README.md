@@ -1,3 +1,5 @@
+# Triangle Calculator for Math Class. This is a school project and should not be used in production without a through check.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
